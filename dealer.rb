@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dealer
   attr_reader :dealer_cards
 
@@ -6,13 +8,21 @@ class Dealer
   end
 
   def show_cards
-    sum = 0
     @dealer_cards.each do |card|
-      card.each do |key, value|
-        sum += value
+      card.each_key do |key|
         print "#{key} "
       end
     end
-    puts "Total points: #{sum}"
+  end
+
+  def scoring
+    sum = 0
+    @dealer_cards.each do |card|
+      card.each_value do |value|
+        sum += value
+        sum -= 10 if value == 11 && sum > 21
+      end
+    end
+    sum
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bank
   attr_reader :cash
 
@@ -5,25 +7,22 @@ class Bank
     @cash = {}
     @cash[:dealer_cash] = 100
     @cash[:player_cash] = 100
-    @cash[:game_cash] = 0
   end
 
   def bet
     @cash[:dealer_cash] -= 10
     @cash[:player_cash] -= 10
-    @cash[:game_cash] += 20
   end
 
   def player_win
-    @cash[:player_cash] += @cache[:game_cash]
+    @cash[:player_cash] += 20
   end
 
   def dealer_win
-    @cash[:dealer_cash]+= @cache[:game_cash]
+    @cash[:dealer_cash] += 20
   end
 
   def draw
-    @cash[:game_cash] = 0
     @cash[:dealer_cash] += 10
     @cash[:player_cash] += 10
   end
