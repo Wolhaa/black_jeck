@@ -35,6 +35,3 @@ class Deck
       @deck.shift
    end
 end
-
-a = Deck.new
-a.create_deck
