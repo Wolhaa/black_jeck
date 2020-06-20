@@ -11,14 +11,6 @@ class Game
 
   attr_reader :bank, :dealer, :player, :deck
 
-  def initialize
-    @bank = nil
-    @dealer = nil
-    @player = nil
-    @deck = nil
-    @players_name = ''
-  end
-
   def new_game
     welcome
     @bank = Bank.new
