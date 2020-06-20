@@ -31,8 +31,13 @@ module Interface
     puts "#{name}, bank is empty!"
   end
 
-  def dealer_info
-    puts "Dealer total points: #{@dealer.scoring}"
+  def dealer_info(options)
+    case options
+    when :scoring
+      puts "Dealer total points: #{@dealer.scoring}"
+    when :cards
+      puts 'Dealer cards: ** **'
+    end
   end
 
   def action_game(action)

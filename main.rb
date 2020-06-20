@@ -38,7 +38,7 @@ class Game
     @dealer.dealer_cards << @deck.give_card
     @player.show_cards
     player_info(@player_name, :scoring)
-    puts 'Dealer cards: ** **'
+    dealer_info(:cards)
   end
 
   def menu
@@ -101,11 +101,11 @@ class Game
 
   def dealer_move
     @dealer.show_cards
-    dealer_info
+    dealer_info(:scoring)
     if @dealer.scoring < 17
       @dealer.dealer_cards << @deck.give_card
       @dealer.show_cards
-      dealer_info
+      dealer_info(:scoring)
       results
     else
       action_game(:round)
